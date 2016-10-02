@@ -27,7 +27,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 
-import cn.fantasymaker.lib_crashreporter.CrashHandler;
+import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02
@@ -37,7 +37,7 @@ import cn.fantasymaker.lib_crashreporter.CrashHandler;
  */
 public class MemoryUtil {
 
-    private static Context sContext = CrashHandler.getContext();
+    private static Context sContext = FMCrashReporter.getContext();
     private static ActivityManager.MemoryInfo sMemoryInfo = new ActivityManager.MemoryInfo();
 
     private MemoryUtil() throws IllegalAccessException {

@@ -26,7 +26,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import cn.fantasymaker.lib_crashreporter.CrashHandler;
+import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02
@@ -36,7 +36,7 @@ import cn.fantasymaker.lib_crashreporter.CrashHandler;
  */
 public class AppUtil {
 
-    private static Context sContext = CrashHandler.getContext();
+    private static Context sContext = FMCrashReporter.getContext();
 
     private static PackageInfo getPackageInfo() throws PackageManager.NameNotFoundException {
         return sContext.getPackageManager().getPackageInfo(sContext.getPackageName(), PackageManager.GET_CONFIGURATIONS);

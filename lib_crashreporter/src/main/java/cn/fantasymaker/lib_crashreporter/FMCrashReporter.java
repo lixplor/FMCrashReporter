@@ -40,24 +40,24 @@ import cn.fantasymaker.lib_crashreporter.util.RootUtil;
  * Web     :  http://blog.fantasymaker.cn
  * Email   :  me@fantasymaker.cn
  */
-public class CrashHandler implements Thread.UncaughtExceptionHandler {
+public class FMCrashReporter implements Thread.UncaughtExceptionHandler {
 
     private static Context sContext;
     private static Thread.UncaughtExceptionHandler sDefaultHandler;
-    private static CrashHandler sCrashHandler = new CrashHandler();
+    private static FMCrashReporter sFMCrashReporter = new FMCrashReporter();
     private static OnHandleExceptionCallback sOnHandleExceptionCallback;
 
-    private CrashHandler() {
+    private FMCrashReporter() {
         sDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     /**
      * Get singleton
      *
-     * @return CrashHandler
+     * @return FMCrashReporter
      */
-    public static CrashHandler getInstance() {
-        return sCrashHandler;
+    public static FMCrashReporter getInstance() {
+        return sFMCrashReporter;
     }
 
     @Override

@@ -26,7 +26,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import cn.fantasymaker.lib_crashreporter.CrashHandler;
+import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02
@@ -43,7 +43,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         sContext = this;
 
-        CrashHandler.init(this, new CrashHandler.OnHandleExceptionCallback() {
+        FMCrashReporter.init(this, new FMCrashReporter.OnHandleExceptionCallback() {
             @Override
             public void onExceptionCaught(Throwable exception) {
                 // handle exception as you need
@@ -51,7 +51,7 @@ public class BaseApplication extends Application {
             }
 
             @Override
-            public boolean afterExceptionHandled(Thread thread, Throwable exception, CrashHandler.CrashInfo crashInfo) {
+            public boolean afterExceptionHandled(Thread thread, Throwable exception, FMCrashReporter.CrashInfo crashInfo) {
                 // you will get crash info here, you can upload to your server or store locally
                 Log.d("aa", crashInfo.toString());
                 // do something like toast to inform user what happened

@@ -30,7 +30,7 @@ import android.telephony.TelephonyManager;
 
 import java.util.List;
 
-import cn.fantasymaker.lib_crashreporter.CrashHandler;
+import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02
@@ -49,7 +49,7 @@ public class PhoneUtil {
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
      */
 
-    private static Context sContext = CrashHandler.getContext();
+    private static Context sContext = FMCrashReporter.getContext();
     private static TelephonyManager sTelephonyManager = (TelephonyManager) sContext.getSystemService(Context.TELEPHONY_SERVICE);
     private static PackageManager sPackageManager = sContext.getPackageManager();
 

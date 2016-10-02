@@ -27,7 +27,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 
-import cn.fantasymaker.lib_crashreporter.CrashHandler;
+import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02
@@ -44,7 +44,7 @@ public class NetworkUtil {
     private static final String NETWORK_TYPE_4G = "NETWORK_TYPE_4G";
     private static final String NETWORK_TYPE_UNKNOWN = "NETWORK_TYPE_UNKNOWN";
 
-    private static Context sContext = CrashHandler.getContext();
+    private static Context sContext = FMCrashReporter.getContext();
 
     private static ConnectivityManager getConnectivityManager(){
         return (ConnectivityManager) sContext.getSystemService(Context.CONNECTIVITY_SERVICE);
