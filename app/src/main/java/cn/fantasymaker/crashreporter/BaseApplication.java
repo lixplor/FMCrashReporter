@@ -43,6 +43,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         sContext = this;
 
+        // init crash reporter with Application context and a callback
         FMCrashReporter.init(this, new FMCrashReporter.OnHandleExceptionCallback() {
             @Override
             public void onExceptionCaught(Throwable exception) {
