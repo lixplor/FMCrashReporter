@@ -20,14 +20,14 @@
  *     SOFTWARE.
  */
 
-package cn.fantasymaker.lib_crashreporter.util;
+package cn.fantasymaker.fmcrashreporter.util;
 
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 
-import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
+import cn.fantasymaker.fmcrashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02

@@ -1,4 +1,4 @@
-package cn.fantasymaker.lib_crashreporter;
+package cn.fantasymaker.fmcrashreporter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

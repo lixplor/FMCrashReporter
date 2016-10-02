@@ -26,7 +26,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
+import cn.fantasymaker.fmcrashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02

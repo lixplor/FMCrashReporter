@@ -20,19 +20,19 @@
  *     SOFTWARE.
  */
 
-package cn.fantasymaker.lib_crashreporter;
+package cn.fantasymaker.fmcrashreporter;
 
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
 
-import cn.fantasymaker.lib_crashreporter.util.AppUtil;
-import cn.fantasymaker.lib_crashreporter.util.DeviceUtil;
-import cn.fantasymaker.lib_crashreporter.util.DisplayUtil;
-import cn.fantasymaker.lib_crashreporter.util.MemoryUtil;
-import cn.fantasymaker.lib_crashreporter.util.NetworkUtil;
-import cn.fantasymaker.lib_crashreporter.util.PhoneUtil;
-import cn.fantasymaker.lib_crashreporter.util.RootUtil;
+import cn.fantasymaker.fmcrashreporter.util.AppUtil;
+import cn.fantasymaker.fmcrashreporter.util.DeviceUtil;
+import cn.fantasymaker.fmcrashreporter.util.DisplayUtil;
+import cn.fantasymaker.fmcrashreporter.util.MemoryUtil;
+import cn.fantasymaker.fmcrashreporter.util.NetworkUtil;
+import cn.fantasymaker.fmcrashreporter.util.PhoneUtil;
+import cn.fantasymaker.fmcrashreporter.util.RootUtil;
 
 /**
  * Created :  2016-07-24

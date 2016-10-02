@@ -20,7 +20,7 @@
  *     SOFTWARE.
  */
 
-package cn.fantasymaker.lib_crashreporter.util;
+package cn.fantasymaker.fmcrashreporter.util;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;

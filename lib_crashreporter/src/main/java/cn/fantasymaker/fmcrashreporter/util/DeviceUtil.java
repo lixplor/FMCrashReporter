@@ -20,18 +20,12 @@
  *     SOFTWARE.
  */
 
-package cn.fantasymaker.lib_crashreporter.util;
+package cn.fantasymaker.fmcrashreporter.util;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Build;
-import android.telephony.CellLocation;
-import android.telephony.NeighboringCellInfo;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.lang.reflect.Field;
-import java.util.List;
 
 /**
  * Created :  2016-08-03

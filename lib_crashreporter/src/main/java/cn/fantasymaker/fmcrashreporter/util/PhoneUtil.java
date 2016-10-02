@@ -20,7 +20,7 @@
  *     SOFTWARE.
  */
 
-package cn.fantasymaker.lib_crashreporter.util;
+package cn.fantasymaker.fmcrashreporter.util;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -30,7 +30,7 @@ import android.telephony.TelephonyManager;
 
 import java.util.List;
 
-import cn.fantasymaker.lib_crashreporter.FMCrashReporter;
+import cn.fantasymaker.fmcrashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02

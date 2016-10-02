@@ -20,11 +20,13 @@
  *     SOFTWARE.
  */
 
-package cn.fantasymaker.lib_crashreporter.util;
+package cn.fantasymaker.fmcrashreporter.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+
+import cn.fantasymaker.fmcrashreporter.FMCrashReporter;
 
 /**
  * Created :  2016-10-02
@@ -32,37 +34,33 @@ import java.io.InputStreamReader;
  * Web     :  http://blog.fantasymaker.cn
  * Email   :  me@fantasymaker.cn
  */
-public class RootUtil {
+public class AppUtil {
 
-    public static boolean isDeviceRooted() {
-        return checkRootMethod1() || checkRootMethod2() || checkRootMethod3();
+    private static Context sContext = FMCrashReporter.getContext();
+
+    private static PackageInfo getPackageInfo() throws PackageManager.NameNotFoundException {
+        return sContext.getPackageManager().getPackageInfo(sContext.getPackageName(), PackageManager.GET_CONFIGURATIONS);
     }
 
-    private static boolean checkRootMethod1() {
-        String buildTags = android.os.Build.TAGS;
-        return buildTags != null && buildTags.contains("test-keys");
-    }
-
-    private static boolean checkRootMethod2() {
-        String[] paths = { "/system/app/Superuser.apk", "/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su", "/system/sd/xbin/su",
-                "/system/bin/failsafe/su", "/data/local/su", "/su/bin/su"};
-        for (String path : paths) {
-            if (new File(path).exists()) return true;
-        }
-        return false;
-    }
-
-    private static boolean checkRootMethod3() {
-        Process process = null;
+    public static String getVersionName() {
+        PackageInfo packageInfo;
         try {
-            process = Runtime.getRuntime().exec(new String[] { "/system/xbin/which", "su" });
-            BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            if (in.readLine() != null) return true;
-            return false;
-        } catch (Throwable t) {
-            return false;
-        } finally {
-            if (process != null) process.destroy();
+            packageInfo = getPackageInfo();
+            return packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static int getVersionCode() {
+        PackageInfo packageInfo;
+        try {
+            packageInfo = getPackageInfo();
+            return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return -1;
         }
     }
 }
