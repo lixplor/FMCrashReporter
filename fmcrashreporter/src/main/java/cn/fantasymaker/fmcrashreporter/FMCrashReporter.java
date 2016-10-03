@@ -25,6 +25,7 @@ package cn.fantasymaker.fmcrashreporter;
 import android.app.Application;
 import android.content.Context;
 import android.os.Process;
+import android.os.SystemClock;
 
 import cn.fantasymaker.fmcrashreporter.util.AppUtil;
 import cn.fantasymaker.fmcrashreporter.util.DeviceUtil;
@@ -108,6 +109,7 @@ public class FMCrashReporter implements Thread.UncaughtExceptionHandler {
         String exception = createExceptionString(ex);
 
         CrashInfo crashInfo = new CrashInfo(
+                System.currentTimeMillis(),
                 PhoneUtil.getDeviceIdIMEI(),
                 DeviceUtil.getDeviceBrand(),
                 DeviceUtil.getDeviceModel(),
@@ -196,6 +198,7 @@ public class FMCrashReporter implements Thread.UncaughtExceptionHandler {
      * Contains crash and device info
      */
     public static class CrashInfo {
+        private long localTime;
         private String imei;
         private String deviceBrand;
         private String deviceModel;
@@ -217,10 +220,10 @@ public class FMCrashReporter implements Thread.UncaughtExceptionHandler {
         private boolean isRoot;
         private int appVersionCode;
         private String appVersionName;
-
         private String exception;
 
-        public CrashInfo(String imei, String deviceBrand, String deviceModel, String manufacturer, int screenWidth, int screenHeight, int dpi, float dpiScale, float fontDpiScale, String androidVersionName, int androidVersionCode, String phoneOperatorName, String phoneNetworkType, String networkState, long sysAvailableMem, long sysUsedMem, long sysTotalMem, long appUsedMem, boolean isRoot, int appVersionCode, String appVersionName, String exception) {
+        public CrashInfo(long localTime, String imei, String deviceBrand, String deviceModel, String manufacturer, int screenWidth, int screenHeight, int dpi, float dpiScale, float fontDpiScale, String androidVersionName, int androidVersionCode, String phoneOperatorName, String phoneNetworkType, String networkState, long sysAvailableMem, long sysUsedMem, long sysTotalMem, long appUsedMem, boolean isRoot, int appVersionCode, String appVersionName, String exception) {
+            this.localTime = localTime;
             this.imei = imei;
             this.deviceBrand = deviceBrand;
             this.deviceModel = deviceModel;
@@ -248,7 +251,8 @@ public class FMCrashReporter implements Thread.UncaughtExceptionHandler {
         @Override
         public String toString() {
             return "CrashInfo{" +
-                    "imei='" + imei + '\'' +
+                    "localTime='" + localTime + '\'' +
+                    ", imei='" + imei + '\'' +
                     ", deviceBrand='" + deviceBrand + '\'' +
                     ", deviceModel='" + deviceModel + '\'' +
                     ", manufacturer='" + manufacturer + '\'' +
